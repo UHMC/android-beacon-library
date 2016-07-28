@@ -152,6 +152,8 @@ public class EidResolver {
             new AsyncCall(urlString, jsonString, new AsyncCallback() {
                 @Override
                 public void onResponse(Integer statusCode, String body, Exception exception) {
+                    Log.d("EddystoneEID_Debug","Status code: ["+statusCode+"], Body: ["+body+"]");
+                    if(exception!=null)exception.printStackTrace();
                     mIdentifierBeingResolved = null;
                     if (exception == null ) {
                         if (statusCode >= 200 && statusCode < 300) {
